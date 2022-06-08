@@ -1,5 +1,5 @@
 # Z80-IDE
- This project is still in progress..
+ This project is still in progress...
 
 ## Getting Started
 
