@@ -10,7 +10,12 @@ import '../assembler/assembler_first_pass.dart';
 import '../assembler/assembler_second_pass.dart';
 
 class AssemblerScreen extends StatelessWidget {
-  AssemblerScreen({Key? key, required this.instructionsReadyForSimulation, required this.changedText, required this.memoryData}) : super(key: key);
+  AssemblerScreen(
+      {Key? key,
+      required this.instructionsReadyForSimulation,
+      required this.changedText,
+      required this.memoryData})
+      : super(key: key);
   List<String> instructionsReadyForSimulation;
   List<String> changedText;
   List<int> memoryData;
@@ -37,7 +42,12 @@ class AssemblerScreen extends StatelessWidget {
 }
 
 class AssemblerScreenBody extends StatefulWidget {
-  AssemblerScreenBody({Key? key, required this.instructionsReadyForSimulation, required this.changedText, required this.memoryData}) : super(key: key);
+  AssemblerScreenBody(
+      {Key? key,
+      required this.instructionsReadyForSimulation,
+      required this.changedText,
+      required this.memoryData})
+      : super(key: key);
   List<String> instructionsReadyForSimulation;
   List<String> changedText;
   List<int> memoryData;
@@ -74,7 +84,7 @@ class _AssemblerScreenBodyState extends State<AssemblerScreenBody> {
             // button assemble is here
             SizedBox(
               height: devicHeight / 20,
-              child: RaisedButton(
+              child: MaterialButton(
                 child: Text('Assemble'),
                 onPressed: assembleMethod,
               ),
@@ -99,32 +109,40 @@ class _AssemblerScreenBodyState extends State<AssemblerScreenBody> {
                               Expanded(
                                 flex: 20,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top: 12, right: kDefaultPadding),
+                                  padding: const EdgeInsets.only(
+                                      top: 12, right: kDefaultPadding),
                                   child: SingleChildScrollView(
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Expanded(
                                           flex: 3,
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
                                             children: addressWidgetList,
                                           ),
                                         ),
                                         Expanded(
                                           flex: 5,
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
                                             children: machineCodeRowsList,
                                           ),
                                         ), // Assembler Widget
                                         Expanded(
                                           flex: 2,
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: precedentLineNumbersWidgetList,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children:
+                                                precedentLineNumbersWidgetList,
                                           ),
                                         ),
                                       ],
@@ -191,7 +209,8 @@ class _AssemblerScreenBodyState extends State<AssemblerScreenBody> {
 
   // onChanged method for the textField widget POP UP assembly line number
   void afterChanged(text) {
-    widget.changedText.replaceRange(0, widget.changedText.length, lsTwo.convert(text));
+    widget.changedText
+        .replaceRange(0, widget.changedText.length, lsTwo.convert(text));
 
     List<Widget> lineNumbersList = [];
     setState(() {
@@ -205,7 +224,8 @@ class _AssemblerScreenBodyState extends State<AssemblerScreenBody> {
           );
         }
         precedentLineNumbersWidgetList = lineNumbersList;
-      } else if (widget.changedText.length < precedentLineNumbersWidgetList.length) {
+      } else if (widget.changedText.length <
+          precedentLineNumbersWidgetList.length) {
         for (var i = 0; i < widget.changedText.length; i++) {
           lineNumbersList.add(
             Text(

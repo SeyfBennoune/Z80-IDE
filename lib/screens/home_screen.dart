@@ -29,11 +29,12 @@ class HomeScreen extends StatelessWidget {
 }
 
 class HomeScreenBody extends StatelessWidget {
-  Container buildRaisedButton(String title, BuildContext con, String routeName) {
+  Container buildRaisedButton(
+      String title, BuildContext con, String routeName) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.all(kDefaultPadding * 2),
-      child: RaisedButton(
+      child: MaterialButton(
         elevation: 20,
         padding: EdgeInsets.all(30),
         onPressed: () => {Navigator.of(con).pushNamed(routeName)},
@@ -56,11 +57,16 @@ class HomeScreenBody extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              buildRaisedButton('Assembler', context, AssemblerScreen.screenRoute),
-              buildRaisedButton('Machine Code', context, MachineCodeScreen.screenRoute),
-              buildRaisedButton('Emulator', context, EmulatorScreen.screenRoute),
-              buildRaisedButton('Program Loader', context, ProgramLoaderScreen.screenRoute),
-              buildRaisedButton('Memory Inspector', context, MemoryInspectorScreen.screenRoute),
+              buildRaisedButton(
+                  'Assembler', context, AssemblerScreen.screenRoute),
+              buildRaisedButton(
+                  'Machine Code', context, MachineCodeScreen.screenRoute),
+              buildRaisedButton(
+                  'Emulator', context, EmulatorScreen.screenRoute),
+              buildRaisedButton(
+                  'Program Loader', context, ProgramLoaderScreen.screenRoute),
+              buildRaisedButton('Memory Inspector', context,
+                  MemoryInspectorScreen.screenRoute),
             ],
           ),
         ),

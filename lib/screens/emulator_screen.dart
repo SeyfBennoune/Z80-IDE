@@ -7,7 +7,12 @@ import '../emulator/emulator.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class EmulatorScreen extends StatelessWidget {
-  EmulatorScreen({Key? key, required this.firstPassResult, required this.changedText, required this.passedParameter}) : super(key: key);
+  EmulatorScreen(
+      {Key? key,
+      required this.firstPassResult,
+      required this.changedText,
+      required this.passedParameter})
+      : super(key: key);
   List<String> firstPassResult;
   List<String> changedText;
   List<String> passedParameter;
@@ -33,7 +38,12 @@ class EmulatorScreen extends StatelessWidget {
 }
 
 class EmulatorScreenBody extends StatelessWidget {
-  EmulatorScreenBody({Key? key, required this.firstPassResult, required this.changedText, required this.passedParameter}) : super(key: key);
+  EmulatorScreenBody(
+      {Key? key,
+      required this.firstPassResult,
+      required this.changedText,
+      required this.passedParameter})
+      : super(key: key);
   ///////////////////////////////////////////////////////
   List<String> firstPassResult;
   List<String> changedText;
@@ -95,7 +105,8 @@ class EmulatorScreenBody extends StatelessWidget {
 
   /////////////////////////////////////////////////////////
   void execute() {
-    Emulator(passedParameter: passedParameter, firstPassResult: firstPassResult).startSimulation();
+    Emulator(passedParameter: passedParameter, firstPassResult: firstPassResult)
+        .startSimulation();
   }
 
   @override
@@ -110,7 +121,7 @@ class EmulatorScreenBody extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                RaisedButton(
+                MaterialButton(
                     child: Text('Execute'),
                     onPressed: () {
                       if (firstPassResult.length == 0) {
@@ -129,12 +140,12 @@ class EmulatorScreenBody extends StatelessWidget {
                         execute();
                       }
                     }),
-                RaisedButton(
+                MaterialButton(
                     child: Text('STEP'),
                     onPressed: () {
                       print(firstPassResult);
                     }),
-                RaisedButton(
+                MaterialButton(
                     child: Text('END'),
                     onPressed: () {
                       print(firstPassResult);

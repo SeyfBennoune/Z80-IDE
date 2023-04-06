@@ -46,7 +46,8 @@ class _InstructionSetBodyState extends State<InstructionSetBody> {
               aspectRatio: 1,
               child: ClipRRect(
                 child: Image(
-                  image: AssetImage('assets/images/instruction_set_page_${pageNumber + 1}.png'),
+                  image: AssetImage(
+                      'assets/images/instruction_set_page_${pageNumber + 1}.png'),
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -73,7 +74,7 @@ class _InstructionSetBodyState extends State<InstructionSetBody> {
   }
 
   Widget buildpageNumberRaisedButton(int givePageNumber) {
-    return RaisedButton(
+    return MaterialButton(
       textColor: Colors.white,
       color: buttonsColors[givePageNumber],
       child: Text('${givePageNumber + 1}'),

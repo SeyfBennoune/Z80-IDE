@@ -12,7 +12,8 @@ class MachineCodeScreen extends StatefulWidget {
   static const screenRoute = '/machine-code';
 
   @override
-  State<MachineCodeScreen> createState() => _MachineCodeScreenState(memoryData: memoryData);
+  State<MachineCodeScreen> createState() =>
+      _MachineCodeScreenState(memoryData: memoryData);
 }
 
 class _MachineCodeScreenState extends State<MachineCodeScreen> {
@@ -193,20 +194,24 @@ class _MachineCodeScreenBodyState extends State<MachineCodeScreenBody> {
     );
   }
 
-  Container buildAddressDataContainer(Color? color, int valueInside, int padLeftValue) {
+  Container buildAddressDataContainer(
+      Color? color, int valueInside, int padLeftValue) {
     return Container(
       padding: EdgeInsets.all(kDefaultPadding),
       color: color,
       alignment: Alignment.center,
       child: Text(
-        '${valueInside.toRadixString(16)}'.toUpperCase().padLeft(padLeftValue, '0'),
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+        '${valueInside.toRadixString(16)}'
+            .toUpperCase()
+            .padLeft(padLeftValue, '0'),
+        style: TextStyle(
+            fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
   }
 
-  RaisedButton buildRaisedButton(String title, void onPushed()) {
-    return RaisedButton(
+  MaterialButton buildRaisedButton(String title, void onPushed()) {
+    return MaterialButton(
       padding: EdgeInsets.all(kDefaultPadding),
       onPressed: onPushed,
       child: Text(
@@ -216,8 +221,8 @@ class _MachineCodeScreenBodyState extends State<MachineCodeScreenBody> {
     );
   }
 
-  RaisedButton buildKeyboardRaisedButton(String title, void onPushed()) {
-    return RaisedButton(
+  MaterialButton buildKeyboardRaisedButton(String title, void onPushed()) {
+    return MaterialButton(
       padding: EdgeInsets.all(kDefaultPadding),
       onPressed: onPushed,
       child: Text(
